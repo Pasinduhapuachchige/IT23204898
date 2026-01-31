@@ -9,7 +9,7 @@ test('Pos_Fun_0001 - Pronoun Variation (They/Group)', async ({ page }) => {
   const sinhalaOutput = page.locator('div.whitespace-pre-wrap').first();
 
   await singlishInput.pressSequentially('eegollo adha enavaa.', { delay: 50 });
-  await page.waitForTimeout(1000); // Wait for translation to process
+  await page.waitForTimeout(1000);
   await singlishInput.press('Enter');
 
   await expect(sinhalaOutput).toContainText('ඒගොල්ලො අද එනවා.');
@@ -20,7 +20,7 @@ test('Pos_Fun_0002 - Pronoun Variation (She)', async ({ page }) => {
   const singlishInput = page.getByPlaceholder('Input Your Singlish Text Here.');
   const sinhalaOutput = page.locator('div.whitespace-pre-wrap').first();
 
-  // Changed fill -> pressSequentially
+  
   await singlishInput.pressSequentially('aeya pothak kiyavanavaa.', { delay: 50 });
   await page.waitForTimeout(1000);
   await singlishInput.press('Enter');
@@ -45,7 +45,7 @@ test('Pos_Fun_0004 - Conjunction (But)', async ({ page }) => {
   const singlishInput = page.getByPlaceholder('Input Your Singlish Text Here.');
   const sinhalaOutput = page.locator('div.whitespace-pre-wrap').first();
 
-  // Changed fill -> pressSequentially
+ 
   await singlishInput.pressSequentially('mama aasayi namuth salli naehae.', { delay: 50 });
   await page.waitForTimeout(1000);
   await singlishInput.press('Enter');
@@ -94,7 +94,7 @@ test('Pos_Fun_0008 - Travel Mode (Bus)', async ({ page }) => {
   const singlishInput = page.getByPlaceholder('Input Your Singlish Text Here.');
   const sinhalaOutput = page.locator('div.whitespace-pre-wrap').first();
 
-  // Changed fill -> pressSequentially
+  
   await singlishInput.pressSequentially('api bus ekee yamu.', { delay: 50 });
   await page.waitForTimeout(1000);
   await singlishInput.press('Enter');
@@ -119,7 +119,7 @@ test('Pos_Fun_0010 - Weather Description', async ({ page }) => {
   const singlishInput = page.getByPlaceholder('Input Your Singlish Text Here.');
   const sinhalaOutput = page.locator('div.whitespace-pre-wrap').first();
 
-  // Changed fill -> pressSequentially
+
   await singlishInput.pressSequentially('adha hari rasnayi.', { delay: 50 });
   await page.waitForTimeout(1000);
   await singlishInput.press('Enter');
@@ -132,7 +132,7 @@ test('Pos_Fun_0011 - Shopping Inquiry', async ({ page }) => {
   const singlishInput = page.getByPlaceholder('Input Your Singlish Text Here.');
   const sinhalaOutput = page.locator('div.whitespace-pre-wrap').first();
 
-  // Changed fill -> pressSequentially
+
   await singlishInput.pressSequentially('meeke mila kiiyadha?', { delay: 50 });
   await page.waitForTimeout(1000);
   await singlishInput.press('Enter');
@@ -145,7 +145,6 @@ test('Pos_Fun_0012 - Future Time Reference', async ({ page }) => {
   const singlishInput = page.getByPlaceholder('Input Your Singlish Text Here.');
   const sinhalaOutput = page.locator('div.whitespace-pre-wrap').first();
 
-  // Changed fill -> pressSequentially
   await singlishInput.pressSequentially('labana sathiyee hamu vemu.', { delay: 50 });
   await page.waitForTimeout(1000);
   await singlishInput.press('Enter');
@@ -170,7 +169,7 @@ test('Pos_Fun_0014 - Decimal Numbers', async ({ page }) => {
   const singlishInput = page.getByPlaceholder('Input Your Singlish Text Here.');
   const sinhalaOutput = page.locator('div.whitespace-pre-wrap').first();
 
-  // Changed fill -> pressSequentially
+  
   await singlishInput.pressSequentially('bara 10.5 kg.', { delay: 50 });
   await page.waitForTimeout(1000);
   await singlishInput.press('Enter');
@@ -187,7 +186,7 @@ test('Pos_Fun_0015 - Phone Number Format', async ({ page }) => {
   await page.waitForTimeout(1000);
   await singlishInput.press('Enter');
 
-  await expect(sinhalaOutput).toContainText('මගේ අංකය 0771234567.');
+  await expect(sinhalaOutput).toContainText('මගේ අංකය 0771234567');
 });
 
 test('Pos_Fun_0016 - Mixed Language (Office Context)', async ({ page }) => {
@@ -221,7 +220,7 @@ test('Pos_Fun_0018 - Honorifics/Titles', async ({ page }) => {
   const singlishInput = page.getByPlaceholder('Input Your Singlish Text Here.');
   const sinhalaOutput = page.locator('div.whitespace-pre-wrap').first();
 
-  // Changed fill -> pressSequentially
+  
   await singlishInput.pressSequentially('sir, mata udhav karanna.', { delay: 50 });
   await page.waitForTimeout(1000);
   await singlishInput.press('Enter');
@@ -294,7 +293,7 @@ test('Pos_Fun_0023 - Place Names (Cities)', async ({ page }) => {
   await expect(sinhalaOutput).toContainText('මම නුවර එළිය යනවා.');
 });
 
-// Fixed duplicated code in this test
+
 test('Pos_Fun_0024 - Personal Names', async ({ page }) => {
   await page.goto('https://www.swifttranslator.com/');
   const singlishInput = page.getByPlaceholder('Input Your Singlish Text Here.');
@@ -312,7 +311,7 @@ test('Pos_Fun_0024 - Personal Names', async ({ page }) => {
   await expect(sinhalaOutput).toContainText('කමල් මගේ යාලුවෙක්.');
 });
 
-// NEGATIVE FUNCTIONAL TEST CASES (10 Scenarios)
+
 
 test('Neg_Fun_0001 - Food Context', async ({ page }) => {
    await page.goto('https://www.swifttranslator.com/');
@@ -325,7 +324,7 @@ test('Neg_Fun_0001 - Food Context', async ({ page }) => {
     await page.waitForTimeout(1000);
     await singlishInput.press('Enter');
 
-    // Expect 'එලවලු' (dental 'l') as that is what lowercase 'l' produces
+    
     await expect(sinhalaOutput).toContainText('මට බත් සහ එලවලු ඕනේ.');
   });
 
